@@ -32,7 +32,7 @@ public:
         {
             if (START != NULL && nim == START->noMhs)
             {
-                cout << "\n Duplikasikan noMhs tidak diijinkan\n";
+                cout << "\nDuplikasikan noMhs tidak diijinkan\n";
                 return;
             }
             
@@ -48,9 +48,32 @@ public:
         {
             if (nim == current->noMhs)
             {
-                cout << "\n Duplikasikan noMhs tidak diijinkan\n";
+                cout << "\nDuplikasikan noMhs tidak diijinkan\n";
                 return;
             }
             previous = current;
             current = current->next;
         }
+
+        nodeBaru->next = current;
+        previous->next = nodeBaru;
+    }
+
+    bool listEmpty()
+    {
+        return START == NULL;
+    }
+
+    bool search(int nim, node *&previous, node *&current)
+    {
+        *previous = START;
+        *current = START;
+
+        while (*current != NULL && nim != current->noMhs)
+        {
+            *previous = *current;
+            *current = (*current)->next;
+        }
+
+        return (current != NULL);
+    }
