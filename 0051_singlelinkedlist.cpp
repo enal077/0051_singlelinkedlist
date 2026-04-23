@@ -1,0 +1,13 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+class node
+{
+public:
+    int data;
+    node *next; 
+}
+
+class
+}
